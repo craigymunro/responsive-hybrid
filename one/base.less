@@ -1,0 +1,183 @@
+// Breakpoints
+@medium:    ~ " screen and (min-width: 768px)";
+@large:     ~ " screen and (min-width: 1024px)";
+
+// Colours
+@link: #2D87D5;
+
+* {
+	box-sizing: border-box;
+	font-family: sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+a { color: @link; }
+
+body
+{
+	margin: 0 auto;
+	padding: 1.5rem;
+	font-size: 16px;
+	color: #202020;
+	max-width: 1280px;
+}
+
+.headlines,
+.sidebar
+{
+	float: left;
+	width: 100%;
+	margin-bottom: 1rem;
+}
+
+@media @medium
+{
+	.headlines
+	{
+		width: 70%;
+		padding-right: 1.5rem;
+	}
+	
+	.sidebar
+	{
+		width: 30%;
+	}
+}
+
+.headlines
+{
+	@p: .5rem;
+	@c: 7rem;
+
+	> ul,
+	> ul > li
+	{
+		position: relative;
+		display: block;
+		float: left;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+	> ul
+	{
+		> li
+		{
+			padding: @p 0;		
+			border-bottom: 1px solid #e0e0e0;
+			overflow: hidden;
+			
+			> .cover
+			{
+				display: none;
+				
+				@media @medium
+				{
+					display: block;
+					position: absolute;
+					top: @p;
+					bottom: @p;
+					left: 0;
+					width: @c;
+					background-size: cover;
+					background-position: top left;
+					background-repeat: no-repeat;
+					background-image: url(//images.eurogamer.net/2014/craig/142979463321.jpg);
+				}
+			}
+			
+			> .title,
+			> .subtitle
+			{
+				margin: 0;
+				padding: 0;
+			}
+			
+			> .title
+			{
+				font-size: 1rem;
+			}
+			
+			> .subtitle
+			{
+				font-size: .85rem;
+			}
+			
+			@media @medium
+			{
+				padding-left: @c + @p;
+			}
+			
+			@media @large
+			{
+				padding-left: (@c*2) + @p;
+				padding-right: 0;
+				min-height: 6rem;
+
+				> .cover
+				{
+					width: (@c * 2);
+					left: 0;
+					right: auto;
+				}
+			}
+		}
+	}
+}
+
+.sidebar
+{
+	background-color: #e0e0e0;
+	padding: 1.5rem;
+	
+	> ul,
+	> ul > li
+	{
+		position: relative;
+		display: block;
+		float: left;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+	> ul
+	{
+		> li
+		{
+			border-bottom: 1px solid #c0c0c0;
+			padding: .5rem 0;
+			
+			> .title
+			{
+				margin: 0;
+				padding: 0;
+				font-size: .9rem;
+			}
+
+			&:first-of-type
+			{
+				padding-top: 0;
+			}
+			
+			&:last-of-type
+			{
+				padding-bottom: 0;
+				border: none;
+			}
+		}
+	}
+}
+
+.mobile-only
+{
+	display: block;
+	float: left;
+	width: 100%;
+	background-color: @link;
+	color: white;
+	padding: .75rem;
+}
